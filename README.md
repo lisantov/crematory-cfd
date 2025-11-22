@@ -18,7 +18,6 @@ SPA сайт предоставляющий услуги кремации с л�
   - PHP >= v8.2
   - Laravel v12.x
   - PostgreSQL
-  - TypeScript
   - Docker + Docker compose
   - Nginx
 
