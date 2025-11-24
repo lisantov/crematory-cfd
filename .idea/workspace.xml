@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b70f06c-b776-4281-9160-024f830e27e5" name="Changes" comment="" />
+    <list default="true" id="3b70f06c-b776-4281-9160-024f830e27e5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/ui/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/assets/main.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -22,6 +31,9 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "front/add-scss",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/lisan/OneDrive/Desktop/crematoriy",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -55,7 +67,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1763733946938</updated>
-      <workItem from="1763733948074" duration="680000" />
+      <workItem from="1763733948074" duration="2773000" />
+      <workItem from="1763742636182" duration="5000" />
+      <workItem from="1763984410632" duration="24000" />
+      <workItem from="1763984436369" duration="25000" />
+      <workItem from="1763984462337" duration="1000" />
+      <workItem from="1763984512863" duration="328000" />
     </task>
     <servers />
   </component>
