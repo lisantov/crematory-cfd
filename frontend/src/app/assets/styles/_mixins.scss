@@ -1,0 +1,23 @@
+@use "sass:map";
+$text-style:(
+  italic:(font-size: 24px, font-weight: 300, font-style: italic),
+  headlines:(font-size: 38px, font-weight: 300),
+  logo:(font-size: 24px, font-weight: 700),
+  h2:(font-size: 20px, font-weight: 400),
+  primary:(font-size: 20px, font-weight: 400),
+  help:(font-size: 18px, font-weight: 400),
+  nav:(font-size: 18px, font-weight: 300),
+  system:(font-size: 16px, font-weight: 400),
+  prices:(font-size: 14px, font-weight: 400),
+);
+
+@mixin text-style($name) {
+  $style: map.get($map: $text-style, $key: $name);
+  font-size: map.get($map: $style, $key: font-size);
+  font-weight: map.get($map: $style, $key: font-weight);
+  @if map.has-key($style, font-style) {
+    font-style: map.get($style, font-style);
+  } @else {
+    font-style: normal;
+  }
+}
