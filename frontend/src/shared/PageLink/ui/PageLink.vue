@@ -12,9 +12,6 @@
 </template>
 
 <style lang="scss" scoped>
-  @use '@styles/_mixins' as *;
-  @use '@styles/_variables' as *;
-
   .link {
     @include text-style(nav);
     text-decoration: none;

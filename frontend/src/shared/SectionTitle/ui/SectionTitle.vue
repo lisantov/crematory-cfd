@@ -8,8 +8,6 @@
   </h2>
 </template>
 <style lang="scss" scoped>
-  @use '@styles/_variables' as *;
-  @use '@styles/_mixins' as *;
   .title {
     display: flex;
     align-items: center;

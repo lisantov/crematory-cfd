@@ -5,8 +5,6 @@
 </template>
 
 <style scoped lang="scss">
-  @use '@styles/_variables' as *;
-
   .card {
     width: 100%;
     display: flex;
