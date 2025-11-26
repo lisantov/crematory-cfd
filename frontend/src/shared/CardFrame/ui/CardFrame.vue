@@ -12,7 +12,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 24px;
     border: 1px solid $card-frame-border;
     border-radius: 32px;
     background-color: $card-frame-background;
