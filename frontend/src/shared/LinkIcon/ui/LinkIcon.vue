@@ -1,14 +1,7 @@
-<script setup lang="ts">
-  interface IProps {
-    href: string;
-  }
-  defineProps<IProps>();
-</script>
-
 <template>
-  <router-link :to="href" class="arrow">
+  <div class="arrow">
     <img class="arrow-icon" src="/assets/icons/topRightArrow.svg" alt="Иконка стрелочки" />
-  </router-link>
+  </div>
 </template>
 
 <style scoped lang="scss">
