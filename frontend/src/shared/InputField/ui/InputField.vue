@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {defineProps} from 'vue'
+import cardFrame from "@/shared/CardFrame";
 
 interface IProps {
   placeholder: string
@@ -9,17 +10,30 @@ const input = defineModel()
 </script>
 
 <template>
-  <input v-model="input" :placeholder="placeholder" type="text" class="input">
+  <card-frame>
+    <label class="label">
+      <input v-model="input" :placeholder="placeholder" type="text" class="input">
+    </label>
+  </card-frame>
 </template>
 
 <style scoped lang="scss">
+.label {
+  width: 100%;
+  height: 100%;
+  box-shadow: $card-frame-shadow;
+  outline: none;
+}
+
 .input {
   width: 100%;
-  border: 1px solid $card-frame-border;
-  border-radius: 33px;
+  height: 100%;
   padding: 12px 30px;
+  border-radius: 33px;
   color: $text-secondary;
   @include text-style(help);
+  border: none;
+  background-color: transparent;
 
   &::placeholder {
     color: $text-secondary;
@@ -31,8 +45,7 @@ const input = defineModel()
   }
 
   &:focus {
-    outline-color: $card-frame-border;
-
+    outline: 2px solid $card-frame-border;
     &::placeholder {
       color: transparent;
     }
