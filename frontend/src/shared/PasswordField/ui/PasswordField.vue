@@ -13,30 +13,28 @@ const toggleHidden = () => isHidden.value = !isHidden.value;
 </script>
 
 <template>
-  <card-frame>
-    <div class="password-container">
-      <label>
-        <input
-          :type="isHidden
-            ? 'password'
-            : 'text'"
-          v-model="model"
-          class="password-field"
-          :placeholder="placeholder"
-        >
-      </label>
-      <button @click="toggleHidden" class="password-icon" :style="{padding: isHidden ? '3px 0 3px' : '0'}">
-        <img
-          :src="isHidden
-            ? '/assets/icons/eye.svg'
-            : '/assets/icons/eye-closed.svg'"
-          :alt="isHidden
-            ? 'Иконка для просмотра пароля'
-            : 'Иконка для скрытия пароля'"
-        >
-      </button>
-    </div>
-  </card-frame>
+  <div class="password-container">
+    <label>
+      <input
+        :type="isHidden
+          ? 'password'
+          : 'text'"
+        v-model="model"
+        class="password-field"
+        :placeholder="placeholder"
+      >
+    </label>
+    <button @click="toggleHidden" class="password-icon" :style="{padding: isHidden ? '3px 0 3px' : '0'}">
+      <img
+        :src="isHidden
+          ? '/assets/icons/eye.svg'
+          : '/assets/icons/eye-closed.svg'"
+        :alt="isHidden
+          ? 'Иконка для просмотра пароля'
+          : 'Иконка для скрытия пароля'"
+      >
+    </button>
+  </div>
 </template>
 
 <style scoped lang="scss">
@@ -47,9 +45,11 @@ const toggleHidden = () => isHidden.value = !isHidden.value;
     border-radius: 32px;
     grid-template-columns: 1fr auto;
     gap: 16px;
+    border: 1px solid $card-frame-border;
+    box-shadow: 0 4px 10px 2px $card-frame-shadow;
 
     &:has(:focus-visible) {
-      outline: 2px solid $button-accent;
+      outline: 2px solid $card-frame-border;
     }
   }
 
@@ -65,7 +65,6 @@ const toggleHidden = () => isHidden.value = !isHidden.value;
 
     &::placeholder {
       color: $input-placeholder;
-      transition: color 0.15s ease-in-out;
     }
 
     &:hover::placeholder {

@@ -39,7 +39,7 @@ defineProps<IProps>()
       border: 1px solid $card-frame-border;
       border-radius: 33px;
       padding: 20px 52px;
-
+      box-shadow: 0 4px 10px 2px $card-frame-shadow;
     }
 
     &-img {
