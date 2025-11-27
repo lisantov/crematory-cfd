@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {defineProps} from 'vue'
-import cardFrame from "@/shared/CardFrame";
 
 interface IProps {
   placeholder: string
