@@ -4,9 +4,11 @@ import {useId} from "vue";
 
 const id = useId();
 
-const props = defineProps({
-  title: String
-})
+interface IProps {
+  title: string
+}
+
+defineProps<IProps>()
 </script>
 
 <template>
