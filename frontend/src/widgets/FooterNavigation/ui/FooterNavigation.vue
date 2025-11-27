@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<section class="footer">
+<footer class="footer">
   <div class="footer-text">
     <a href="#" class="footer-link">О нас</a>
     <a href="#" class="footer-link">Наши сотрудники</a>
@@ -22,7 +22,7 @@
     <a href="#" class="footer-link">FAQ (Часто задаваемые вопросы)</a>
     <p>© 2025 Crem. Все права защищены.</p>
   </div>
-</section>
+</footer>
 </template>
 
 <style scoped lang="scss">
