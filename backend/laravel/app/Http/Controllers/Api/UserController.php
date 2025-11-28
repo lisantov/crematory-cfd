@@ -17,7 +17,7 @@ class UserController extends Controller
         ],200);
 
     }
-    public function updateProfile(UpdateProfileRequest $request,User $user)
+    public function updateProfile(UpdateProfileRequest $request)
     {
         $user = User::find($request->user()->id);
         $user->update($request->all());
@@ -26,8 +26,13 @@ class UserController extends Controller
             "user"=>$user,
         ],200);
     }
-    public function destroyProfile(Request $request,User $user)
+    public function destroyProfile(Request $request)
     {
-        //
+        $user = User::find($request->user()->id);
+        $user->delete();
+        return response()->json([
+            "message"=> "Profile deleted",
+            "user"=>$user,
+        ],200);
     }
 }
