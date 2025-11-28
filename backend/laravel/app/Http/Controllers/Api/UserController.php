@@ -32,7 +32,6 @@ class UserController extends Controller
         $user->delete();
         return response()->json([
             "message"=> "Profile deleted",
-            "user"=>$user,
         ],200);
     }
 }
