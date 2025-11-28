@@ -15,7 +15,7 @@ return new class extends Migration
             $table->dropColumn('name');
             $table->string('first_name',255);
             $table->string('last_name',255);
-            $table->string('middle_name',255);
+            $table->string('middle_name',255)->nullable();
             $table->string('phone',20)->unique();
             $table->boolean('is_admin')->default(false);
     });
