@@ -1,14 +1,14 @@
 @use "sass:map";
 $text-style:(
-  italic:(font-family: 'Inter', font-size: 24px, font-weight: 300, font-style: italic),
-  headlines:(font-family: 'Inter', font-size: 38px, font-weight: 300),
-  logo:(font-family: 'Inter', font-size: 24px, font-weight: 700),
-  h2:(font-family: 'Inter', font-size: 24px, font-weight: 500),
-  primary:(font-family: 'Inter', font-size: 20px, font-weight: 400),
-  help:(font-family: 'Inter', font-size: 18px, font-weight: 400),
-  nav:(font-family: 'Inter', font-size: 18px, font-weight: 300),
-  system:(font-family: 'Inter', font-size: 16px, font-weight: 400),
-  prices:(font-family: 'Inter', font-size: 14px, font-weight: 400),
+  italic:(font-family: 'Inter', font-size: 1.5rem, font-weight: 300, font-style: italic),
+  headlines:(font-family: 'Inter', font-size: 2.375rem, font-weight: 300),
+  logo:(font-family: 'Inter', font-size: 1.5rem, font-weight: 700),
+  h2:(font-family: 'Inter', font-size: 1.5rem, font-weight: 500),
+  primary:(font-family: 'Inter', font-size: 1.25rem, font-weight: 400),
+  help:(font-family: 'Inter', font-size: 1.125rem, font-weight: 400),
+  nav:(font-family: 'Inter', font-size: 1.125rem, font-weight: 300),
+  system:(font-family: 'Inter', font-size: 1rem, font-weight: 400),
+  prices:(font-family: 'Inter', font-size: 0.875rem, font-weight: 400),
 );
 
 @mixin text-style($name) {
