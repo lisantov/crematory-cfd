@@ -6,7 +6,7 @@
 </script>
 
 <template>
-  <router-link :to="href" class="link">
+  <router-link :to="{path: href.split('#')[0], hash: '#' + href.split('#')[1]}" class="link">
     <slot></slot>
   </router-link>
 </template>

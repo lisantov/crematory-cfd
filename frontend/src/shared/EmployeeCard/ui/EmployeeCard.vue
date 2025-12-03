@@ -17,7 +17,7 @@ defineProps<IProps>();
     <h3 class="employee-card-name">{{ name }}</h3>
     <div class="employee-card-text">
       <p class="employee-card-post">{{ post }}</p>
-      <blockquote class="employee-card-quote">„{{ quote }}“</blockquote>
+      <blockquote class="employee-card-quote">“{{ quote }}„</blockquote>
     </div>
   </article>
 </template>
