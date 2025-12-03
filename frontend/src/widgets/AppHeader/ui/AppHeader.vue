@@ -7,11 +7,11 @@ import PrimaryButton from "@/shared/PrimaryButton";
 <header class="header">
   <h2 class="header-logo">Крематорий</h2>
   <nav class="header-nav">
-    <page-link href="/">о нас</page-link>
-    <page-link href="/">наши сотрудники</page-link>
-    <page-link href="/">близким</page-link>
-    <page-link href="/">услуги</page-link>
-    <page-link href="/">вопросы</page-link>
+    <page-link href="/#about">о нас</page-link>
+    <page-link href="/#employees">наши сотрудники</page-link>
+    <page-link href="/#advantages">близким</page-link>
+    <page-link href="/#service">услуги</page-link>
+    <page-link href="/#faq">вопросы</page-link>
   </nav>
   <primary-button type="button">войти</primary-button>
 </header>
