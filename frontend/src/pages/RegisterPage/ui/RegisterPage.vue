@@ -49,7 +49,7 @@ import PageLink from "@/shared/PageLink";
   align-items: center;
   justify-content: center;
   gap: 40px;
-  padding: 100px 28%;
+  padding: 50px 28%;
 
   &-inputs {
     display: flex;
