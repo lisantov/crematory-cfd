@@ -4,7 +4,7 @@ namespace App\Actions;
 
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class PasswodNormalization
+class PasswordNormalization
 {
     use AsAction;
 

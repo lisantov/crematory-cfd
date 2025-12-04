@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Actions\PasswodNormalization;
+use App\Actions\PasswordNormalization;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
@@ -18,8 +18,8 @@ class AuthController extends Controller
     {
         $validated = $request->validated();
         $phoneNumber = $validated['phone'];
-        $normalizationPhone = PasswodNormalization::run($phoneNumber);
-        
+        $normalizationPhone = PasswordNormalization::run($phoneNumber);
+
         User::create([
                 'first_name' => $validated['first_name'],
                 'last_name' => $validated['last_name'],
