@@ -32,7 +32,9 @@ const input = defineModel()
   color: $text-secondary;
   @include text-style(help);
   border: none;
+  outline: 1px solid $card-frame-border;
   background-color: transparent;
+  box-shadow: 0 4px 10px 2px $card-frame-shadow;
 
   &::placeholder {
     color: $text-secondary;
