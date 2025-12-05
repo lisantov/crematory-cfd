@@ -1,19 +1,16 @@
 <script setup lang="ts">
 import AppHeader from "@/widgets/AppHeader";
 import FooterNavigation from "@/widgets/FooterNavigation";
-import RegisterPage from "@/pages/RegisterPage";
-import LoginPage from "@/pages/LoginPage";
 </script>
 
 <template>
-<!--  <div class="wrap">-->
-<!--    <app-header/>-->
-<!--    <main class="main">-->
-<!--      <router-view/>-->
-<!--    </main>-->
-<!--    <footer-navigation/>-->
-<!--  </div>-->
-  <login-page/>
+  <div class="wrap">
+    <app-header/>
+    <main class="main">
+      <router-view/>
+    </main>
+    <footer-navigation/>
+  </div>
 </template>
 
 <style scoped lang="scss">
