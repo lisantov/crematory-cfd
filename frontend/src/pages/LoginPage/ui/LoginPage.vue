@@ -10,25 +10,27 @@ import PageLink from "@/shared/PageLink";
 
 <template>
   <div class="registration">
-    <section-title>
-      <p>Вход</p>
-    </section-title>
-    <div class="registration-inputs">
-      <input-field placeholder="Логин"/>
-      <password-field placeholder="Пароль"></password-field>
-      <div class="registration-links">
-        <page-link href="/registration/">
-          <p>Забыли пароль?</p>
-        </page-link>
-        <page-link href="/passwordRecovery/">
-          <p>Ещё не зарегистрированы?</p>
-        </page-link>
+    <div class="registration-container">
+      <section-title>
+        <p>Вход</p>
+      </section-title>
+      <div class="registration-inputs">
+        <input-field placeholder="Логин"/>
+        <password-field placeholder="Пароль"></password-field>
+        <div class="registration-links">
+          <page-link href="/registration/">
+            <p>Забыли пароль?</p>
+          </page-link>
+          <page-link href="/passwordRecovery/">
+            <p>Ещё не зарегистрированы?</p>
+          </page-link>
+        </div>
       </div>
-    </div>
-    <div class="registration-interactive">
-      <primary-button type="submit">
-        <p>Войти</p>
-      </primary-button>
+      <div class="registration-interactive">
+        <primary-button type="submit">
+          <p>Войти</p>
+        </primary-button>
+      </div>
     </div>
   </div>
 </template>
@@ -39,8 +41,16 @@ import PageLink from "@/shared/PageLink";
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 40px;
-  padding: 50px 28%;
+  padding: 50px 0;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    min-width: 700px;
+  }
 
   &-inputs {
     display: flex;
