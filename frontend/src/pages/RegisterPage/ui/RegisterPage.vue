@@ -10,35 +10,37 @@ import PageLink from "@/shared/PageLink";
 
 <template>
   <div class="registration">
-    <section-title>
-      <p>Регистрация</p>
-    </section-title>
-    <div class="registration-inputs">
-      <input-field placeholder="Фамилия"/>
-      <input-field placeholder="Имя"/>
-      <input-field placeholder="Отчество (необязательно)"/>
-      <input-field placeholder="Придумайте логин"/>
-      <input-field placeholder="Номер телефона"/>
-      <input-field placeholder="Email (необязательно)"/>
-      <password-field placeholder="Пароль"></password-field>
-      <password-field placeholder="Введите пароль ещё раз"></password-field>
-    </div>
-    <div class="registration-checkbox">
-      <checkbox-field>
-        <p>Даю согласие на обработку персональных данных</p>
-      </checkbox-field>
-      <checkbox-field>
-        <p>Согласен с политикой конфидециальности</p>
-      </checkbox-field>
-    </div>
-    <div class="registration-interactive">
-      <primary-button type="submit">
+      <div class="registration-container">
+      <section-title>
         <p>Регистрация</p>
-      </primary-button>
-      <page-link href="/login/">
-        <p>Уже есть аккаунт?</p>
-      </page-link>
-    </div>
+      </section-title>
+      <div class="registration-inputs">
+        <input-field placeholder="Фамилия"/>
+        <input-field placeholder="Имя"/>
+        <input-field placeholder="Отчество (необязательно)"/>
+        <input-field placeholder="Придумайте логин"/>
+        <input-field placeholder="Номер телефона"/>
+        <input-field placeholder="Email (необязательно)"/>
+        <password-field placeholder="Пароль"></password-field>
+        <password-field placeholder="Введите пароль ещё раз"></password-field>
+      </div>
+      <div class="registration-checkbox">
+        <checkbox-field>
+          <p>Даю согласие на обработку персональных данных</p>
+        </checkbox-field>
+        <checkbox-field>
+          <p>Согласен с политикой конфидециальности</p>
+        </checkbox-field>
+      </div>
+      <div class="registration-interactive">
+        <primary-button type="submit">
+          <p>Регистрация</p>
+        </primary-button>
+        <page-link href="/login/">
+          <p>Уже есть аккаунт?</p>
+        </page-link>
+      </div>
+      </div>
   </div>
 </template>
 
@@ -48,8 +50,16 @@ import PageLink from "@/shared/PageLink";
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 40px;
-  padding: 50px 28%;
+  padding: 50px 0;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    min-width: 700px;
+  }
 
   &-inputs {
     display: flex;
