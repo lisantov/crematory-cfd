@@ -68,4 +68,21 @@ class OrderController extends Controller
         ]);
     }
 
+    public function showDocuments(Order $order)
+    {
+        if ($order->user_id !== Auth()->id()) {
+            return response()->json([
+                'message' => 'Forbbiden'
+            ], 403);
+        }
+
+        $documents = $order->documents()->get();
+
+        return response()->json([
+            'order_id' => $order->id,
+            'documents' => $documents
+        ]);
+    }
+
+
 }

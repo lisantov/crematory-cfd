@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get("/orders/history", [OrderController::class,"historyOrders"]);
     Route::get('/orders/{order}/status', [OrderController::class, 'statusOrder']);
     Route::patch('/orders/{order}/cancel', [OrderController::class, 'cancelOrder']);
+    Route::get('/orders/{order}/documents', [OrderController::class,'showDocuments']);
 
 
     Route::post('/logout', [AuthController::class, 'logout']);
