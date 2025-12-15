@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import PageLink from "@/shared/PageLink";
-import PrimaryButton from "@/shared/PrimaryButton";
+import PageLink from "@shared-ui/PageLink";
+import PrimaryButton from "@shared-ui/PrimaryButton";
 </script>
 
 <template>
@@ -13,7 +13,7 @@ import PrimaryButton from "@/shared/PrimaryButton";
     <page-link href="/#service">услуги</page-link>
     <page-link href="/#faq">вопросы</page-link>
   </nav>
-  <primary-button type="button">войти</primary-button>
+  <primary-button primary type="button">войти</primary-button>
 </header>
 </template>
 

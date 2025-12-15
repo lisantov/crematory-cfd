@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LinkIcon from "@/shared/LinkIcon";
+import LinkIcon from "@shared-ui/LinkIcon";
 
 interface IProps {
   title: string;

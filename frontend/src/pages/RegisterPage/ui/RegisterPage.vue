@@ -1,11 +1,11 @@
 <script setup lang="ts">
 
-import SectionTitle from "@/shared/SectionTitle";
-import InputField from "@/shared/InputField";
-import PasswordField from "@/shared/PasswordField";
-import CheckboxField from "@/shared/CheckboxField";
-import PrimaryButton from "@/shared/PrimaryButton";
-import PageLink from "@/shared/PageLink";
+import SectionTitle from "@shared-ui/SectionTitle";
+import InputField from "@shared-ui/InputField";
+import PasswordField from "@shared-ui/PasswordField";
+import CheckboxField from "@shared-ui/CheckboxField";
+import PrimaryButton from "@shared-ui/PrimaryButton";
+import PageLink from "@shared-ui/PageLink";
 </script>
 
 <template>

@@ -20,7 +20,7 @@
     <router-link to="/" class="footer-link">Правовая информация</router-link>
     <router-link to="/" class="footer-link">Политика конфиденциальности</router-link>
     <a href="#" class="footer-link">FAQ (Часто задаваемые вопросы)</a>
-    <p>© 2025 Crem. Все права защищены.</p>
+    <p>&copy; 2025 Crem. Все права защищены.</p>
   </div>
 </footer>
 </template>

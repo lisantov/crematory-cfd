@@ -1,10 +1,10 @@
 <script setup lang="ts">
 
-import SectionTitle from '@/shared/SectionTitle'
-import ServiceCard from '@/shared/ServiceCard'
-import ProductCard from '@/shared/ProductCard'
-import EmployeeCard from '@/shared/EmployeeCard'
-import AccordeonInfo from '@/shared/AccordeonInfo'
+import SectionTitle from '@shared-ui/SectionTitle'
+import ServiceCard from '@shared-ui/ServiceCard'
+import ProductCard from '@shared-ui/ProductCard'
+import EmployeeCard from '@shared-ui/EmployeeCard'
+import AccordeonInfo from '@shared-ui/AccordeonInfo'
 </script>
 
 <template>
