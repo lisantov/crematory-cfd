@@ -1,8 +1,8 @@
 import type {
   ForgotPasswordData,
-  LoginUserData,
+  LoginUserData, MessageResponse,
   RegisterUserData,
-  ResetPasswordData
+  ResetPasswordData, TokenResponse
 } from "@/shared/api/types.ts";
 
 const BASE_URL = import.meta.env.VITE_URL;
@@ -15,12 +15,12 @@ const checkResponse = (res: Response) => {
 }
 
 const request = async <T>(endpoint: string, options?: Object): Promise<T> => {
-  return fetch(`${BASE_URL + ':' + BASE_PORT + '/api/'}${endpoint}`, options)
+  return fetch(`https://${BASE_URL + ':' + BASE_PORT + '/api/'}${endpoint}`, options)
     .then(checkResponse);
 }
 
-export const loginUser = (endpoint: string, data: LoginUserData) => {
-  return request('login/', {
+export const loginUser = (data: LoginUserData) => {
+  return request<TokenResponse>('login/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -29,28 +29,8 @@ export const loginUser = (endpoint: string, data: LoginUserData) => {
   })
 }
 
-export const registerUser = (endpoint: string, data: RegisterUserData) => {
-  return request('register/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  })
-}
-
-export const forgotPasswordUser = (endpoint: string, data: ForgotPasswordData) => {
-  return request('password/forgot/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  })
-}
-
-export const resetPasswordUser = (endpoint: string, data: ResetPasswordData) => {
-  return request('password/reset/', {
+export const registerUser = (data: RegisterUserData) => {
+  return request<MessageResponse>('register/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

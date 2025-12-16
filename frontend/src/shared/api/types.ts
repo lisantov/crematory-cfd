@@ -23,3 +23,19 @@ export interface ResetPasswordData {
   password: string;
   password_confirmation: string;
 }
+
+export interface MessageResponse {
+  message: string;
+}
+
+export interface TokenResponse {
+  token: string;
+}
+
+export interface ProfileResponse {
+  profile: string;
+}
+
+export interface ErrorResponse extends MessageResponse {
+  errors: Record<string, string[]>;
+}
