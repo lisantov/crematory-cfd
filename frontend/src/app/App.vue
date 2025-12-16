@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import AppHeader from "@/widgets/AppHeader";
 import FooterNavigation from "@/widgets/FooterNavigation";
-import ChangePasswordPage from "@/pages/ChangePasswordPage";
 </script>
 
 <template>
