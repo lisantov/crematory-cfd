@@ -3,6 +3,7 @@ import {defineProps} from 'vue'
 
 interface IProps {
   placeholder: string
+  white: boolean
 }
 defineProps<IProps>()
 const input = defineModel()
@@ -11,7 +12,7 @@ const input = defineModel()
 <template>
   <card-frame>
     <label class="label">
-      <input v-model="input" :placeholder="placeholder" type="text" class="input">
+      <input v-model="input" :placeholder="placeholder" type="text" class="input" :class="white && 'white'">
     </label>
   </card-frame>
 </template>
@@ -52,4 +53,6 @@ const input = defineModel()
     }
   }
 }
+
+
 </style>
