@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import AppHeader from "@/widgets/AppHeader";
 import FooterNavigation from "@/widgets/FooterNavigation";
-import {loginUser, registerUser} from "@/shared/api";
-
 </script>
 
 <template>
