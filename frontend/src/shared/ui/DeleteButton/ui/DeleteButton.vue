@@ -24,6 +24,7 @@ defineProps<IProps>();
   background: transparent;
   border: 1px solid  $card-frame-border;
   color: $text-secondary;
+  cursor: pointer;
   opacity: 0.8;
   @include text-style(system);
 

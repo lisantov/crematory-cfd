@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import SectionTitle from "@/shared/SectionTitle";
-import InfoRow from "@/shared/InfoRow";
-import PrimaryButton from "@/shared/PrimaryButton";
-import DeleteButton from "@/shared/DeleteButton";
+import SectionTitle from "@shared-ui/SectionTitle";
+import InfoRow from "@shared-ui/InfoRow";
+import PrimaryButton from "@shared-ui/PrimaryButton";
+import DeleteButton from "@shared-ui/DeleteButton";
 import CremationCard from "@/widgets/CremationCard";
 
 

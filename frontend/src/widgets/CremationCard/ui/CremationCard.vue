@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { CremationCard } from "./../model/types";
-import PrimaryButton from "@/shared/PrimaryButton";
+import type { CremationCard } from "./../model/types";
+import PrimaryButton from "@shared-ui/PrimaryButton";
 import {computed} from "vue";
 
 const props = defineProps<CremationCard>();
