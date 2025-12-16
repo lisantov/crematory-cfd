@@ -18,7 +18,17 @@ const router = createRouter({
       path: '/registration',
       name: 'registration',
       component: () => import("../../pages/RegisterPage")
-    }
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: () => import("../../pages/ProfilePage")
+    },
+    {
+      path: '/changePassword',
+      name: 'changePassword',
+      component: () => import("../../pages/ChangePasswordPage")
+    },
   ],
 })
 

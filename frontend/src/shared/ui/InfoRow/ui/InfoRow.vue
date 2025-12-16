@@ -30,6 +30,8 @@ defineProps<Iprops>();
   @include text-style(info);
   outline: 1px solid $card-frame-border;
   transition: opacity 0.2s ease;
+  max-width: 750px;
+  max-height: 60px;
 
   &-description {
     opacity: 0.8;

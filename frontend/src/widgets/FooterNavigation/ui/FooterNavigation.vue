@@ -11,9 +11,9 @@
     <a href="#" class="footer-link">Услуги</a>
   </div>
   <div class="footer-text">
-    <p>Наш адрес: Томская обл., г. Томск, ул. Нахимова, 45 </p>
-    <p>Круглосуточная линия помощи: 8 (800) 123-45-67</p>
-    <p>E-mail: info@crematory.ru</p>
+    <a href="/" class="footer-link">Наш адрес: Томская обл., г. Томск, ул. Нахимова, 45 </a>
+    <a href="tel:88001234567" class="footer-link">Круглосуточная линия помощи: 8 (800) 123-45-67</a>
+    <a href="mailto:info@crematory.ru" class="footer-link">E-mail: info@crematory.ru</a>
     <router-link to="/" class="footer-link">Регистрация</router-link>
   </div>
   <div class="footer-text">
