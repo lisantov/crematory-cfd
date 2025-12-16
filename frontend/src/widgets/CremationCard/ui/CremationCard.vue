@@ -1,8 +1,16 @@
 <script setup lang="ts">
 import { CremationCard } from "./../model/types";
 import PrimaryButton from "@/shared/PrimaryButton";
+import {computed} from "vue";
 
-defineProps<CremationCard>();
+const props = defineProps<CremationCard>();
+
+const parsedDocuments = computed(() => {
+  if (props.documents) {
+    return JSON.parse(props.documents);
+  }
+  return [];
+});
 </script>
 
 <template>
@@ -24,7 +32,7 @@ defineProps<CremationCard>();
      </div>
      <div class="card-docks">
        <h2 class="card-docks-title">Документы</h2>
-       <p>{{ documents }}</p>
+       <p v-for="doc in parsedDocuments" :key="doc">{{ doc }}</p>
        <primary-button type="button"><img src="/assets/icons/application.svg" alt="Заявка"> Запросить справку</primary-button>
      </div>
    </div>
@@ -45,8 +53,9 @@ defineProps<CremationCard>();
   border: 1px solid $card-frame-border;
   box-shadow: 0 4px 10px 2px $card-frame-shadow;
   gap: 24px;
-  max-width: 1000px;
+  min-width: 1000px;
   width: 100%;
+  overflow: visible;
 
   &-text {
     display: flex;
