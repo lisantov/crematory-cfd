@@ -9,24 +9,28 @@ import AltButton from "@/shared/ui/AltButton";
     <article class="change">
       <div class="change-header">
         <h1 class="change-title">Смена пароля</h1>
-        <img src="/assets/icons/cross.svg" alt="Закрыть" class="change-cross"/>
+        <router-link to="/">
+          <img src="/assets/icons/cross.svg" alt="Закрыть" class="change-cross"/>
+        </router-link>
       </div>
       <form class="change-form">
         <div class="change-form-inputs">
           <div class="change-form-inputs-container">
-            <p>Введите старый пароль</p>
-            <input-field placeholder="Старый пароль"></input-field>
+            <p class="change-form-inputs-container-text">Введите старый пароль</p>
+            <input-field white placeholder="Старый пароль"></input-field>
           </div>
           <div class="change-form-inputs-container">
-            <p>Введите новый пароль</p>
-            <input-field placeholder="Новый пароль"></input-field>
+            <p class="change-form-inputs-container-text">Введите новый пароль</p>
+            <input-field white placeholder="Новый пароль"></input-field>
           </div>
           <div class="change-form-inputs-container">
-            <p>Подтвердите пароль</p>
-            <input-field placeholder="Подтвердите пароль"></input-field>
+            <p class="change-form-inputs-container-text">Подтвердите пароль</p>
+            <input-field white placeholder="Подтвердите пароль"></input-field>
           </div>
         </div>
-        <AltButton type="submit">Изменить пароль</AltButton>
+        <div class="change-form-button">
+          <AltButton type="submit">Изменить пароль</AltButton>
+        </div>
       </form>
     </article>
   </div>
@@ -69,6 +73,16 @@ import AltButton from "@/shared/ui/AltButton";
       align-items: center;
       justify-content: center;
       grid-column: 3;
+      opacity: 1;
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        opacity: 0.6;
+      }
     }
 
     &-form {
@@ -80,6 +94,23 @@ import AltButton from "@/shared/ui/AltButton";
         display: flex;
         flex-direction: column;
         gap: 16px;
+
+        &-container {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          color: $text-on-dark-primary;
+          @include text-style(nav);
+
+          &-text {
+            padding-left: 40px;
+          }
+        }
+      }
+
+      &-button {
+        display: flex;
+        justify-content: center;
       }
     }
   }

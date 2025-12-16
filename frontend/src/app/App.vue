@@ -8,7 +8,7 @@ import ChangePasswordPage from "@/pages/ChangePasswordPage";
   <div class="wrap">
     <app-header/>
     <main class="main">
-      <change-password-page/>
+      <router-view/>
     </main>
     <footer-navigation/>
   </div>

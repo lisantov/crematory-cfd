@@ -17,7 +17,6 @@ defineProps<IProps>();
    display: flex;
    justify-content: center;
    align-items: center;
-   width: 100%;
    padding: 16px 60px;
    border-radius: 33px;
    background: transparent;
