@@ -5,7 +5,7 @@ interface IProps {
   placeholder: string
   white?: boolean
   required?: boolean
-  error?: boolean
+  error?: string
   type: string
 }
 defineProps<IProps>()
@@ -13,11 +13,10 @@ const input = defineModel()
 </script>
 
 <template>
-  <card-frame>
-    <label class="label">
-      <input :required="required" v-model="input" :placeholder="placeholder" :type="type" class="input" :class="{ white: white, error: error }">
-    </label>
-  </card-frame>
+  <label class="label">
+    <input :required="required" v-model="input" :placeholder="placeholder" :type="type" class="input" :class="white && 'white', error && 'error'">
+    <span v-if="error" class="input-error">{{ error }}</span>
+  </label>
 </template>
 
 <style scoped lang="scss">
@@ -30,7 +29,7 @@ const input = defineModel()
 
 .input {
   width: 100%;
-  height: 100%;
+  height: 54px;
   padding: 12px 30px;
   border-radius: 33px;
   color: $text-secondary;
@@ -54,6 +53,12 @@ const input = defineModel()
     &::placeholder {
       color: transparent;
     }
+  }
+
+  &-error {
+    @include text-style(help);
+    font-size: 14px;
+    color: $delete-active;
   }
 }
 

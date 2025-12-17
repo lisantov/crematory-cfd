@@ -5,17 +5,27 @@
     primary?: boolean;
     simple?: boolean;
     accent?: boolean;
+    href?: string;
   }
 
   defineProps<IProps>();
 </script>
 
 <template>
+  <a
+    class="button"
+    :class="`${simple && 'simple'} ${primary && 'primary'} ${accent && 'accent'}`"
+    v-if="href"
+    :href="href"
+  >
+    <slot></slot>
+  </a>
   <button
     :type="type"
     :disabled="disabled"
     class="button"
     :class="`${simple && 'simple'} ${primary && 'primary'} ${accent && 'accent'}`"
+    v-else
   >
     <slot></slot>
   </button>
@@ -29,6 +39,7 @@
     background-color: transparent;
     border: 1px solid $button-control;
     color: $button-control;
+    text-decoration: none;
     cursor: pointer;
     transition: 0.25s ease-in-out;
 

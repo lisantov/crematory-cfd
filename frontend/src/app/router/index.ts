@@ -25,7 +25,7 @@ const router = createRouter({
       component: () => import("../../pages/ProfilePage")
     },
     {
-      path: '/changePassword',
+      path: '/change-password',
       name: 'changePassword',
       component: () => import("../../pages/ChangePasswordPage")
     },
