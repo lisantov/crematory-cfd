@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import InputField from "@shared-ui/InputField";
-import AltButton from "@shared-ui/ui/AltButton";
+import AltButton from "@shared-ui/AltButton";
 </script>
 
 <template>
