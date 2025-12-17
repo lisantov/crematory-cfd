@@ -5,6 +5,7 @@ import { ref } from 'vue'
 interface IProps {
   placeholder: string;
   required?: boolean
+  error?: boolean
 }
 defineProps<IProps>()
 const model = defineModel<string>()
@@ -24,6 +25,7 @@ const toggleHidden = () => isHidden.value = !isHidden.value;
         class="password-field"
         :placeholder="placeholder"
         :required="required"
+        :class="{  error: error }"
       >
     </label>
     <button @click="toggleHidden" class="password-icon" :style="{padding: isHidden ? '3px 0 3px' : '0'}">
@@ -95,5 +97,9 @@ const toggleHidden = () => isHidden.value = !isHidden.value;
     & img {
       width: 100%;
     }
+  }
+
+  .error {
+    outline: 2px solid $delete-active;
   }
 </style>

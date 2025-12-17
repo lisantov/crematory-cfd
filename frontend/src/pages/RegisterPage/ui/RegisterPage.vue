@@ -22,20 +22,6 @@ const userData = reactive<RegisterUserData>({
   password_confirmation: ''
 })
 
-const errors = reactive<ErrorResponse>({
-  message: '',
-  errors: {
-    first_name: [],
-    last_name: [],
-    patronymic: [],
-    email: [],
-    phone: [],
-    login: [],
-    password: [],
-    password_confirmation: []
-  }
-});
-
 const errorInputs = ref<string[]>([]);
 
 async function userDataTransfer () {
@@ -64,12 +50,12 @@ async function userDataTransfer () {
         <p>Регистрация</p>
       </section-title>
       <div class="registration-inputs">
-        <input-field :error="errorInputs.includes('first_name')" required v-model="userData.first_name" placeholder="Фамилия"/>
-        <input-field :error="errorInputs.includes('last_name')" required v-model="userData.last_name" placeholder="Имя"/>
-        <input-field :error="errorInputs.includes('patronymic')" v-model="userData.patronymic" placeholder="Отчество (необязательно)"/>
-        <input-field :error="errorInputs.includes('phone')" required v-model="userData.phone" placeholder="Придумайте логин"/>
-        <input-field :error="errorInputs.includes('login')" required v-model="userData.login" placeholder="Номер телефона"/>
-        <input-field :error="errorInputs.includes('email')" required v-model="userData.email" placeholder="Email (необязательно)"/>
+        <input-field :error="errorInputs.includes('first_name')" type="text" required v-model="userData.first_name" placeholder="Фамилия"/>
+        <input-field :error="errorInputs.includes('last_name')" type="text" required v-model="userData.last_name" placeholder="Имя"/>
+        <input-field :error="errorInputs.includes('patronymic')" type="text" v-model="userData.patronymic" placeholder="Отчество (необязательно)"/>
+        <input-field :error="errorInputs.includes('phone')" type="text" required v-model="userData.phone" placeholder="Придумайте логин"/>
+        <input-field :error="errorInputs.includes('login')" type="tel" required v-model="userData.login" placeholder="Номер телефона"/>
+        <input-field :error="errorInputs.includes('email')" type="email" required v-model="userData.email" placeholder="Email (необязательно)"/>
         <password-field required v-model="userData.password" placeholder="Пароль"></password-field>
         <password-field required v-model="userData.password_confirmation" placeholder="Введите пароль ещё раз"></password-field>
       </div>

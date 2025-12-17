@@ -6,6 +6,7 @@ interface IProps {
   white?: boolean
   required?: boolean
   error?: boolean
+  type: string
 }
 defineProps<IProps>()
 const input = defineModel()
@@ -14,7 +15,7 @@ const input = defineModel()
 <template>
   <card-frame>
     <label class="label">
-      <input :required="required" v-model="input" :placeholder="placeholder" type="text" class="input" :class="{ white: white, error: error }">
+      <input :required="required" v-model="input" :placeholder="placeholder" :type="type" class="input" :class="{ white: white, error: error }">
     </label>
   </card-frame>
 </template>
