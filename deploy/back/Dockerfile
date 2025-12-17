@@ -9,9 +9,14 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
-COPY ../../backend/laravel/ /var/www/html/
+COPY ../../backend/laravel/composer.json ../../backend/laravel/composer.lock ./
 
-RUN mkdir -p storage/app/public \
+RUN composer install --no-dev --no-scripts --optimize-autoloader
+
+COPY ../../backend/laravel/ ./
+
+RUN mkdir -p \
+    storage/app/public \
     storage/framework/cache \
     storage/framework/sessions \
     storage/framework/views \
@@ -20,7 +25,5 @@ RUN mkdir -p storage/app/public \
 
 RUN chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
-
-RUN composer install --no-dev --optimize-autoloader
 
 CMD ["php", "-S", "0.0.0.0:9000", "-t", "/var/www/html/public"]
