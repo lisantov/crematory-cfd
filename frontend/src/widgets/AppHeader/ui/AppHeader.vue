@@ -13,7 +13,7 @@ import PrimaryButton from "@shared-ui/PrimaryButton";
     <page-link href="/#service">услуги</page-link>
     <page-link href="/#faq">вопросы</page-link>
   </nav>
-  <primary-button primary type="button">войти</primary-button>
+  <primary-button href="/login" primary type="button">войти</primary-button>
 </header>
 </template>
 

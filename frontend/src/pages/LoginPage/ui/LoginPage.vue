@@ -45,7 +45,7 @@ async function loginUserDataTransfer () {
         <input-field :error="errorInputs.includes('login')" type="text" required v-model="loginUserData.login" placeholder="Логин"/>
         <password-field :error="errorInputs.includes('password')" v-model="loginUserData.password" required placeholder="Пароль"></password-field>
         <div class="registration-links">
-          <page-link href="/passwordRecovery/">
+          <page-link href="/password-recovery/">
             <p>Забыли пароль?</p>
           </page-link>
           <page-link href="/registration/">

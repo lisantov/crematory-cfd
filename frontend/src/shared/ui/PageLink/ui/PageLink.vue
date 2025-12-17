@@ -6,9 +6,9 @@
 </script>
 
 <template>
-  <router-link :to="{path: href.split('#')[0], hash: '#' + href.split('#')[1]}" class="link">
+  <a :href="href" class="link">
     <slot></slot>
-  </router-link>
+  </a>
 </template>
 
 <style lang="scss" scoped>

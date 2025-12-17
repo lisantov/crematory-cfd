@@ -7,9 +7,17 @@ import CheckboxField from "@shared-ui/CheckboxField";
 import PrimaryButton from "@shared-ui/PrimaryButton";
 import PageLink from "@shared-ui/PageLink";
 import type {ErrorResponse, RegisterUserData} from "@/shared/api/types.ts";
-import {reactive, ref} from "vue";
+import {computed, reactive, ref} from "vue";
 import {registerUser} from "@/shared/api";
 import router from "@/app/router";
+import {
+  validateEmail,
+  validateLastName,
+  validateLogin,
+  validateName,
+  validatePassword, validatePatronymic,
+  validatePhone
+} from "@/shared/utils/validator.ts";
 
 const userData = reactive<RegisterUserData>({
   first_name: '',
@@ -22,25 +30,46 @@ const userData = reactive<RegisterUserData>({
   password_confirmation: ''
 })
 
-const errorInputs = ref<string[]>([]);
+let userErrors = reactive<RegisterUserData>({
+  first_name: '',
+  last_name: '',
+  patronymic: '',
+  email: '',
+  phone: '',
+  login: '',
+  password: '',
+  password_confirmation: ''
+})
 
-async function userDataTransfer () {
-  try {
-    await registerUser(userData);
-    await router.push('/login');
-  }
-  catch (error) {
+const isFormValid = computed<boolean>(() => Boolean(!userErrors.first_name
+  && !userErrors.last_name
+  && !userErrors.patronymic
+  && !userErrors.email
+  && !userErrors.phone
+  && !userErrors.login
+  && !userErrors.password
+  && !userErrors.password_confirmation))
 
-    errorInputs.value = [];
-
-    const err = error as { response?: { data?: ErrorResponse } };
-    const backendErrors = err.response?.data?.errors;
-
-    if (backendErrors) {
-      errorInputs.value = Object.keys(backendErrors).filter(field => backendErrors[field].length > 0);
-    }
+const userDataTransfer = () => {
+  if (isFormValid) {
+      registerUser(userData)
+        .then(() => {
+          router.push('/login')
+        })
+        .catch((data: ErrorResponse) => {
+          userErrors = Object.assign(userErrors, data.errors)
+        })
   }
 }
+
+const validName = (event: InputEvent) => userErrors.first_name = validateName((event.target as HTMLInputElement).value)
+const validLastName = (event: InputEvent) => userErrors.last_name = validateLastName((event.target as HTMLInputElement).value)
+const validPatronymic = (event: InputEvent) => userErrors.patronymic = validatePatronymic((event.target as HTMLInputElement).value)
+const validEmail = (event: InputEvent) => userErrors.email = validateEmail((event.target as HTMLInputElement).value)
+const validLogin = (event: InputEvent) => userErrors.login = validateLogin((event.target as HTMLInputElement).value)
+const validPhone = (event: InputEvent) => userErrors.phone = validatePhone((event.target as HTMLInputElement).value)
+const validPassword = (event: InputEvent) => userErrors.password = validatePassword((event.target as HTMLInputElement).value)
+const validRepeatPassword = (event: InputEvent) => userErrors.password_confirmation = (event.target as HTMLInputElement).value === userData.password ? '' : 'Пароли не совпадают'
 </script>
 
 <template>
@@ -50,14 +79,14 @@ async function userDataTransfer () {
         <p>Регистрация</p>
       </section-title>
       <div class="registration-inputs">
-        <input-field :error="errorInputs.includes('first_name')" type="text" required v-model="userData.first_name" placeholder="Фамилия"/>
-        <input-field :error="errorInputs.includes('last_name')" type="text" required v-model="userData.last_name" placeholder="Имя"/>
-        <input-field :error="errorInputs.includes('patronymic')" type="text" v-model="userData.patronymic" placeholder="Отчество (необязательно)"/>
-        <input-field :error="errorInputs.includes('phone')" type="text" required v-model="userData.phone" placeholder="Придумайте логин"/>
-        <input-field :error="errorInputs.includes('login')" type="tel" required v-model="userData.login" placeholder="Номер телефона"/>
-        <input-field :error="errorInputs.includes('email')" type="email" required v-model="userData.email" placeholder="Email (необязательно)"/>
-        <password-field required v-model="userData.password" placeholder="Пароль"></password-field>
-        <password-field required v-model="userData.password_confirmation" placeholder="Введите пароль ещё раз"></password-field>
+        <input-field @input="validName" :error="userErrors.first_name" type="text" required v-model="userData.first_name" placeholder="Имя"/>
+        <input-field @input="validLastName" :error="userErrors.last_name" type="text" required v-model="userData.last_name" placeholder="Фамилия"/>
+        <input-field @input="validPatronymic" :error="userErrors.patronymic" type="text" v-model="userData.patronymic" placeholder="Отчество (необязательно)"/>
+        <input-field @input="validPhone" :error="userErrors.phone" type="tel" required v-model="userData.phone" placeholder="Номер телефона"/>
+        <input-field @input="validLogin" :error="userErrors.login" type="text" required v-model="userData.login" placeholder="Придумайте логин"/>
+        <input-field @input="validEmail" :error="userErrors.email" type="email" required v-model="userData.email" placeholder="Email (необязательно)"/>
+        <password-field @input="validPassword" :error="userErrors.password" required v-model="userData.password" placeholder="Пароль"></password-field>
+        <password-field @input="validRepeatPassword" :error="userErrors.password_confirmation" required v-model="userData.password_confirmation" placeholder="Введите пароль ещё раз"></password-field>
       </div>
       <div class="registration-checkbox">
         <checkbox-field required>
@@ -68,7 +97,7 @@ async function userDataTransfer () {
         </checkbox-field>
       </div>
       <div class="registration-interactive">
-        <primary-button type="submit">
+        <primary-button :disabled="!isFormValid" type="submit">
           <p>Регистрация</p>
         </primary-button>
         <page-link href="/login/">
