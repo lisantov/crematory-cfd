@@ -18,7 +18,11 @@ const errorInputs = ref<string[]>([]);
 
 async function loginUserDataTransfer () {
   try {
-    await loginUser(loginUserData);
+    const resp = await loginUser(loginUserData)
+    const token = resp.token;
+
+    localStorage.setItem('token', token);
+
     await router.push('/profile');
   }
   catch (error) {
