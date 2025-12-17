@@ -6,6 +6,7 @@ export interface LoginUserData {
 export interface RegisterUserData {
   first_name: string;
   last_name: string;
+  patronymic? : string;
   email: string;
   phone: string;
   login: string;

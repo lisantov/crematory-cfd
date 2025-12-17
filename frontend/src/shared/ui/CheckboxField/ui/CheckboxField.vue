@@ -1,9 +1,16 @@
 <script setup lang="ts">
+import {defineProps} from "vue";
+
 const checked = defineModel()
+
+interface IProps {
+  required?: boolean
+}
+defineProps<IProps>()
 </script>
 <template>
   <div class="checkboxField">
-    <input v-model="checked"  type="checkbox" class="checkboxField-checkbox">
+    <input :required="required" v-model="checked"  type="checkbox" class="checkboxField-checkbox">
     <label class="checkboxField-label">
       <p class="checkboxField-text"><slot></slot></p>
     </label>

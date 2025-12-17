@@ -3,7 +3,9 @@ import {defineProps} from 'vue'
 
 interface IProps {
   placeholder: string
-  white: boolean
+  white?: boolean
+  required?: boolean
+  error?: boolean
 }
 defineProps<IProps>()
 const input = defineModel()
@@ -12,7 +14,7 @@ const input = defineModel()
 <template>
   <card-frame>
     <label class="label">
-      <input v-model="input" :placeholder="placeholder" type="text" class="input" :class="white && 'white'">
+      <input :required="required" v-model="input" :placeholder="placeholder" type="text" class="input" :class="{ white: white, error: error }">
     </label>
   </card-frame>
 </template>
@@ -83,5 +85,9 @@ const input = defineModel()
   &:invalid {
     outline: 2px solid $delete-active;
   }
+}
+
+.error {
+  outline: 2px solid $delete-active;
 }
 </style>
