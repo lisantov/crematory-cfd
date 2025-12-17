@@ -8,7 +8,7 @@ import PrimaryButton from "@shared-ui/PrimaryButton";
 import PageLink from "@shared-ui/PageLink";
 import type {ErrorResponse, RegisterUserData} from "@/shared/api/types.ts";
 import {reactive, ref} from "vue";
-import {loginUser} from "@/shared/api";
+import {registerUser} from "@/shared/api";
 import router from "@/app/router";
 
 const userData = reactive<RegisterUserData>({
@@ -26,7 +26,7 @@ const errorInputs = ref<string[]>([]);
 
 async function userDataTransfer () {
   try {
-    await loginUser(userData);
+    await registerUser(userData);
     await router.push('/login');
   }
   catch (error) {
