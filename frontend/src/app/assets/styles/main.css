@@ -1,0 +1,17 @@
+@import '../fonts/fonts.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.underlined {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-underline-offset: 6px;
+}
