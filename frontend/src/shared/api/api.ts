@@ -14,7 +14,7 @@ const checkResponse = (res: Response) => {
 }
 
 const request = async <T>(endpoint: string, options?: object): Promise<T> => {
-  return fetch(`https://${BASE_URL + ':' + BASE_PORT + '/api/'}${endpoint}`, options).then(
+  return fetch(`https://${BASE_URL + '/api/'}${endpoint}`, options).then(
     checkResponse,
   )
 }

@@ -6,7 +6,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ResetPasswordController;
 use App\Http\Controllers\Api\ForgotPasswordController;
+use App\Http\Middleware\HandleWebSocket;
 
+Route::middleware([HandleWebSocket::class])->group(function () {
+    Route::get('/ws-test', function () {
+        return response()->json([
+            'message' => 'WebSocket endpoint',
+            'timestamp' => now(),
+            'headers' => request()->headers->all(),
+        ]);
+    });
+});
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
 // })->middleware('auth:sanctum');

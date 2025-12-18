@@ -86,7 +86,7 @@ const validRepeatPassword = (event: InputEvent) =>
 </script>
 
 <template>
-  <form class="registration" @sumbit.prevent="userDataTransfer">
+  <form class="registration" @submit.prevent="userDataTransfer">
     <div class="registration-container">
       <section-title>
         <p>Регистрация</p>
