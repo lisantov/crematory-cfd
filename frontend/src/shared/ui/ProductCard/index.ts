@@ -1,2 +1,2 @@
-import ProductCard from './ui/ProductCard.vue';
-export default ProductCard;
+import ProductCard from './ui/ProductCard.vue'
+export default ProductCard

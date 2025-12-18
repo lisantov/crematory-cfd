@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import AppHeader from "@/widgets/AppHeader";
-import FooterNavigation from "@/widgets/FooterNavigation";
+import AppHeader from '@/widgets/AppHeader'
+import FooterNavigation from '@/widgets/FooterNavigation'
 </script>
 
 <template>
   <div class="wrap">
-    <app-header/>
+    <app-header />
     <main class="main">
-      <router-view/>
+      <router-view />
     </main>
-    <footer-navigation/>
+    <footer-navigation />
   </div>
 </template>
 

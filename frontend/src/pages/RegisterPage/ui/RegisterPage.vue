@@ -1,23 +1,23 @@
 <script setup lang="ts">
-
-import SectionTitle from "@shared-ui/SectionTitle";
-import InputField from "@shared-ui/InputField";
-import PasswordField from "@shared-ui/PasswordField";
-import CheckboxField from "@shared-ui/CheckboxField";
-import PrimaryButton from "@shared-ui/PrimaryButton";
-import PageLink from "@shared-ui/PageLink";
-import type {ErrorResponse, RegisterUserData} from "@/shared/api/types.ts";
-import {computed, reactive, ref} from "vue";
-import {registerUser} from "@/shared/api";
-import router from "@/app/router";
+import SectionTitle from '@shared-ui/SectionTitle'
+import InputField from '@shared-ui/InputField'
+import PasswordField from '@shared-ui/PasswordField'
+import CheckboxField from '@shared-ui/CheckboxField'
+import PrimaryButton from '@shared-ui/PrimaryButton'
+import PageLink from '@shared-ui/PageLink'
+import type { ErrorResponse, RegisterUserData } from '@/shared/api/types.ts'
+import { computed, reactive } from 'vue'
+import { registerUser } from '@/shared/api'
+import router from '@/app/router'
 import {
   validateEmail,
   validateLastName,
   validateLogin,
   validateName,
-  validatePassword, validatePatronymic,
-  validatePhone
-} from "@/shared/utils/validator.ts";
+  validatePassword,
+  validatePatronymic,
+  validatePhone,
+} from '@/shared/utils/validator.ts'
 
 const userData = reactive<RegisterUserData>({
   first_name: '',
@@ -27,7 +27,7 @@ const userData = reactive<RegisterUserData>({
   phone: '',
   login: '',
   password: '',
-  password_confirmation: ''
+  password_confirmation: '',
 })
 
 let userErrors = reactive<RegisterUserData>({
@@ -38,55 +38,121 @@ let userErrors = reactive<RegisterUserData>({
   phone: '',
   login: '',
   password: '',
-  password_confirmation: ''
+  password_confirmation: '',
 })
 
-const isFormValid = computed<boolean>(() => Boolean(!userErrors.first_name
-  && !userErrors.last_name
-  && !userErrors.patronymic
-  && !userErrors.email
-  && !userErrors.phone
-  && !userErrors.login
-  && !userErrors.password
-  && !userErrors.password_confirmation))
+const isFormValid = computed<boolean>(() =>
+  Boolean(
+    !userErrors.first_name &&
+      !userErrors.last_name &&
+      !userErrors.patronymic &&
+      !userErrors.email &&
+      !userErrors.phone &&
+      !userErrors.login &&
+      !userErrors.password &&
+      !userErrors.password_confirmation,
+  ),
+)
 
 const userDataTransfer = () => {
-  if (isFormValid) {
-      registerUser(userData)
-        .then(() => {
-          router.push('/login')
-        })
-        .catch((data: ErrorResponse) => {
-          userErrors = Object.assign(userErrors, data.errors)
-        })
+  if (isFormValid.value) {
+    registerUser(userData)
+      .then(() => {
+        router.push('/login')
+      })
+      .catch((data: ErrorResponse) => {
+        userErrors = Object.assign(userErrors, data.errors)
+      })
   }
 }
 
-const validName = (event: InputEvent) => userErrors.first_name = validateName((event.target as HTMLInputElement).value)
-const validLastName = (event: InputEvent) => userErrors.last_name = validateLastName((event.target as HTMLInputElement).value)
-const validPatronymic = (event: InputEvent) => userErrors.patronymic = validatePatronymic((event.target as HTMLInputElement).value)
-const validEmail = (event: InputEvent) => userErrors.email = validateEmail((event.target as HTMLInputElement).value)
-const validLogin = (event: InputEvent) => userErrors.login = validateLogin((event.target as HTMLInputElement).value)
-const validPhone = (event: InputEvent) => userErrors.phone = validatePhone((event.target as HTMLInputElement).value)
-const validPassword = (event: InputEvent) => userErrors.password = validatePassword((event.target as HTMLInputElement).value)
-const validRepeatPassword = (event: InputEvent) => userErrors.password_confirmation = (event.target as HTMLInputElement).value === userData.password ? '' : 'Пароли не совпадают'
+const validName = (event: InputEvent) =>
+  (userErrors.first_name = validateName((event.target as HTMLInputElement).value))
+const validLastName = (event: InputEvent) =>
+  (userErrors.last_name = validateLastName((event.target as HTMLInputElement).value))
+const validPatronymic = (event: InputEvent) =>
+  (userErrors.patronymic = validatePatronymic((event.target as HTMLInputElement).value))
+const validEmail = (event: InputEvent) =>
+  (userErrors.email = validateEmail((event.target as HTMLInputElement).value))
+const validLogin = (event: InputEvent) =>
+  (userErrors.login = validateLogin((event.target as HTMLInputElement).value))
+const validPhone = (event: InputEvent) =>
+  (userErrors.phone = validatePhone((event.target as HTMLInputElement).value))
+const validPassword = (event: InputEvent) =>
+  (userErrors.password = validatePassword((event.target as HTMLInputElement).value))
+const validRepeatPassword = (event: InputEvent) =>
+  (userErrors.password_confirmation =
+    (event.target as HTMLInputElement).value === userData.password ? '' : 'Пароли не совпадают')
 </script>
 
 <template>
-  <form class="registration" @sumbit.prevent = "userDataTransfer">
-      <div class="registration-container">
+  <form class="registration" @sumbit.prevent="userDataTransfer">
+    <div class="registration-container">
       <section-title>
         <p>Регистрация</p>
       </section-title>
       <div class="registration-inputs">
-        <input-field @input="validName" :error="userErrors.first_name" type="text" required v-model="userData.first_name" placeholder="Имя"/>
-        <input-field @input="validLastName" :error="userErrors.last_name" type="text" required v-model="userData.last_name" placeholder="Фамилия"/>
-        <input-field @input="validPatronymic" :error="userErrors.patronymic" type="text" v-model="userData.patronymic" placeholder="Отчество (необязательно)"/>
-        <input-field @input="validPhone" :error="userErrors.phone" type="tel" required v-model="userData.phone" placeholder="Номер телефона"/>
-        <input-field @input="validLogin" :error="userErrors.login" type="text" required v-model="userData.login" placeholder="Придумайте логин"/>
-        <input-field @input="validEmail" :error="userErrors.email" type="email" required v-model="userData.email" placeholder="Email (необязательно)"/>
-        <password-field @input="validPassword" :error="userErrors.password" required v-model="userData.password" placeholder="Пароль"></password-field>
-        <password-field @input="validRepeatPassword" :error="userErrors.password_confirmation" required v-model="userData.password_confirmation" placeholder="Введите пароль ещё раз"></password-field>
+        <input-field
+          @input="validName"
+          :error="userErrors.first_name"
+          type="text"
+          required
+          v-model="userData.first_name"
+          placeholder="Имя"
+        />
+        <input-field
+          @input="validLastName"
+          :error="userErrors.last_name"
+          type="text"
+          required
+          v-model="userData.last_name"
+          placeholder="Фамилия"
+        />
+        <input-field
+          @input="validPatronymic"
+          :error="userErrors.patronymic"
+          type="text"
+          v-model="userData.patronymic"
+          placeholder="Отчество (необязательно)"
+        />
+        <input-field
+          @input="validPhone"
+          :error="userErrors.phone"
+          type="tel"
+          required
+          v-model="userData.phone"
+          placeholder="Номер телефона"
+        />
+        <input-field
+          @input="validLogin"
+          :error="userErrors.login"
+          type="text"
+          required
+          v-model="userData.login"
+          placeholder="Придумайте логин"
+        />
+        <input-field
+          @input="validEmail"
+          :error="userErrors.email"
+          type="email"
+          required
+          v-model="userData.email"
+          placeholder="Email (необязательно)"
+        />
+        <password-field
+          @input="validPassword"
+          :error="userErrors.password"
+          required
+          v-model="userData.password"
+          placeholder="Пароль"
+        ></password-field>
+        <password-field
+          @input="validRepeatPassword"
+          :error="userErrors.password_confirmation"
+          required
+          v-model="userData.password_confirmation"
+          placeholder="Введите пароль ещё раз"
+        ></password-field>
       </div>
       <div class="registration-checkbox">
         <checkbox-field required>
@@ -104,7 +170,7 @@ const validRepeatPassword = (event: InputEvent) => userErrors.password_confirmat
           <p>Уже есть аккаунт?</p>
         </page-link>
       </div>
-      </div>
+    </div>
   </form>
 </template>
 

@@ -1,2 +1,2 @@
-import LinkIcon from './ui/LinkIcon.vue';
-export default LinkIcon;
+import LinkIcon from './ui/LinkIcon.vue'
+export default LinkIcon

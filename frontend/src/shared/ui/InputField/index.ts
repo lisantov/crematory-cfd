@@ -1,2 +1,2 @@
-import InputField from './ui/InputField.vue';
-export default InputField;
+import InputField from './ui/InputField.vue'
+export default InputField
