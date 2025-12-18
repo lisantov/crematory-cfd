@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import LinkIcon from "@shared-ui/LinkIcon";
+import LinkIcon from '@shared-ui/LinkIcon'
 
 interface IProps {
-  title: string;
-  description: string;
-  href: string;
-  price: string;
+  title: string
+  description: string
+  href: string
+  price: string
 }
 
-defineProps<IProps>();
+defineProps<IProps>()
 </script>
 
 <template>
@@ -19,7 +19,7 @@ defineProps<IProps>();
         <p class="card-header-text-price">{{ price }}</p>
       </div>
       <router-link :to="href">
-        <link-icon/>
+        <link-icon />
       </router-link>
     </div>
     <div class="card-description">

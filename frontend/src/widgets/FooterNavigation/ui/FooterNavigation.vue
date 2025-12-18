@@ -1,28 +1,28 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-<footer class="footer">
-  <div class="footer-text">
-    <a href="#" class="footer-link">О нас</a>
-    <a href="#" class="footer-link">Наши сотрудники</a>
-    <a href="#" class="footer-link">Близким</a>
-    <a href="#" class="footer-link">Услуги</a>
-  </div>
-  <div class="footer-text">
-    <a href="/" class="footer-link">Наш адрес: Томская обл., г. Томск, ул. Нахимова, 45 </a>
-    <a href="tel:88001234567" class="footer-link">Круглосуточная линия помощи: 8 (800) 123-45-67</a>
-    <a href="mailto:info@crematory.ru" class="footer-link">E-mail: info@crematory.ru</a>
-    <router-link to="/" class="footer-link">Регистрация</router-link>
-  </div>
-  <div class="footer-text">
-    <router-link to="/" class="footer-link">Правовая информация</router-link>
-    <router-link to="/" class="footer-link">Политика конфиденциальности</router-link>
-    <a href="#" class="footer-link">FAQ (Часто задаваемые вопросы)</a>
-    <p>&copy; 2025 Crem. Все права защищены.</p>
-  </div>
-</footer>
+  <footer class="footer">
+    <div class="footer-text">
+      <a href="#" class="footer-link">О нас</a>
+      <a href="#" class="footer-link">Наши сотрудники</a>
+      <a href="#" class="footer-link">Близким</a>
+      <a href="#" class="footer-link">Услуги</a>
+    </div>
+    <div class="footer-text">
+      <a href="/" class="footer-link">Наш адрес: Томская обл., г. Томск, ул. Нахимова, 45 </a>
+      <a href="tel:88001234567" class="footer-link"
+        >Круглосуточная линия помощи: 8 (800) 123-45-67</a
+      >
+      <a href="mailto:info@crematory.ru" class="footer-link">E-mail: info@crematory.ru</a>
+      <router-link to="/" class="footer-link">Регистрация</router-link>
+    </div>
+    <div class="footer-text">
+      <router-link to="/" class="footer-link">Правовая информация</router-link>
+      <router-link to="/" class="footer-link">Политика конфиденциальности</router-link>
+      <a href="#" class="footer-link">FAQ (Часто задаваемые вопросы)</a>
+      <p>&copy; 2025 Crem. Все права защищены.</p>
+    </div>
+  </footer>
 </template>
 
 <style scoped lang="scss">
@@ -47,7 +47,8 @@
     text-decoration: none;
     color: $text-on-dark-primary;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       opacity: 0.8;
     }
   }

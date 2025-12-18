@@ -3,7 +3,7 @@ const checked = defineModel()
 </script>
 <template>
   <div class="checkboxField">
-    <input v-model="checked"  type="checkbox" class="checkboxField-checkbox">
+    <input v-model="checked" type="checkbox" class="checkboxField-checkbox" />
     <label class="checkboxField-label">
       <p class="checkboxField-text"><slot></slot></p>
     </label>
@@ -37,18 +37,18 @@ const checked = defineModel()
     border-radius: 5px;
     aspect-ratio: 1;
     cursor: pointer;
-    transition: 0.20s ease;
+    transition: 0.2s ease;
 
     &:hover {
       border: 1px solid $button-control-hover;
     }
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       width: 0;
       height: 0;
-      background-image: url("/assets/icons/checkboxCheckMark.svg");
+      background-image: url('/assets/icons/checkboxCheckMark.svg');
       background-position: center;
       background-repeat: no-repeat;
       transition: 500ms;

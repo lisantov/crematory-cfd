@@ -1,10 +1,9 @@
 <script setup lang="ts">
-
-import SectionTitle from "@shared-ui/SectionTitle";
-import InputField from "@shared-ui/InputField";
-import PasswordField from "@shared-ui/PasswordField";
-import PrimaryButton from "@shared-ui/PrimaryButton";
-import PageLink from "@shared-ui/PageLink";
+import SectionTitle from '@shared-ui/SectionTitle'
+import InputField from '@shared-ui/InputField'
+import PasswordField from '@shared-ui/PasswordField'
+import PrimaryButton from '@shared-ui/PrimaryButton'
+import PageLink from '@shared-ui/PageLink'
 </script>
 
 <template>
@@ -14,7 +13,7 @@ import PageLink from "@shared-ui/PageLink";
         <p>Вход</p>
       </section-title>
       <div class="registration-inputs">
-        <input-field placeholder="Логин"/>
+        <input-field placeholder="Логин" />
         <password-field placeholder="Пароль"></password-field>
         <div class="registration-links">
           <page-link href="/registration/">
@@ -61,7 +60,7 @@ import PageLink from "@shared-ui/PageLink";
   &-links {
     display: flex;
     justify-content: space-between;
-    padding:0 30px;
+    padding: 0 30px;
   }
 
   &-interactive {

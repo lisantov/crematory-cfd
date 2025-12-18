@@ -1,26 +1,25 @@
 <script setup lang="ts">
-
-import SectionTitle from "@shared-ui/SectionTitle";
-import InputField from "@shared-ui/InputField";
-import PasswordField from "@shared-ui/PasswordField";
-import CheckboxField from "@shared-ui/CheckboxField";
-import PrimaryButton from "@shared-ui/PrimaryButton";
-import PageLink from "@shared-ui/PageLink";
+import SectionTitle from '@shared-ui/SectionTitle'
+import InputField from '@shared-ui/InputField'
+import PasswordField from '@shared-ui/PasswordField'
+import CheckboxField from '@shared-ui/CheckboxField'
+import PrimaryButton from '@shared-ui/PrimaryButton'
+import PageLink from '@shared-ui/PageLink'
 </script>
 
 <template>
   <div class="registration">
-      <div class="registration-container">
+    <div class="registration-container">
       <section-title>
         <p>Регистрация</p>
       </section-title>
       <div class="registration-inputs">
-        <input-field placeholder="Фамилия"/>
-        <input-field placeholder="Имя"/>
-        <input-field placeholder="Отчество (необязательно)"/>
-        <input-field placeholder="Придумайте логин"/>
-        <input-field placeholder="Номер телефона"/>
-        <input-field placeholder="Email (необязательно)"/>
+        <input-field placeholder="Фамилия" />
+        <input-field placeholder="Имя" />
+        <input-field placeholder="Отчество (необязательно)" />
+        <input-field placeholder="Придумайте логин" />
+        <input-field placeholder="Номер телефона" />
+        <input-field placeholder="Email (необязательно)" />
         <password-field placeholder="Пароль"></password-field>
         <password-field placeholder="Введите пароль ещё раз"></password-field>
       </div>
@@ -40,7 +39,7 @@ import PageLink from "@shared-ui/PageLink";
           <p>Уже есть аккаунт?</p>
         </page-link>
       </div>
-      </div>
+    </div>
   </div>
 </template>
 

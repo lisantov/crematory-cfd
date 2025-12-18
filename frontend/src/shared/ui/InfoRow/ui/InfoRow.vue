@@ -2,18 +2,18 @@
 interface Iprops {
   title: string
 }
-defineProps<Iprops>();
+defineProps<Iprops>()
 </script>
 
 <template>
-<div class="info-row">
-  <p class="info-row-title">
-    {{ title }}
-  </p>
-  <p class="info-row-description">
-    <slot></slot>
-  </p>
-</div>
+  <div class="info-row">
+    <p class="info-row-title">
+      {{ title }}
+    </p>
+    <p class="info-row-description">
+      <slot></slot>
+    </p>
+  </div>
 </template>
 
 <style scoped lang="scss">

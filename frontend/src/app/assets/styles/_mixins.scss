@@ -1,33 +1,75 @@
-@use "sass:map";
-$text-style:(
+@use 'sass:map';
+$text-style: (
   // 38px
-  headlines:(font-family: 'Inter', font-size: 2.25rem, font-weight: 300),
-
+  headlines: (
+      font-family: 'Inter',
+      font-size: 2.25rem,
+      font-weight: 300,
+    ),
   // 28px
-  title:(font-family: 'Inter', font-size: 1.75rem, font-weight: 300),
-
+  title: (
+      font-family: 'Inter',
+      font-size: 1.75rem,
+      font-weight: 300,
+    ),
   // 24px
-  logo:(font-family: 'Inter', font-size: 1.5rem, font-weight: 700),
-  h2:(font-family: 'Inter', font-size: 1.5rem, font-weight: 500),
-  info:(font-family: 'Inter', font-size: 1.5rem, font-weight: 400),
-  italic:(font-family: 'Inter', font-size: 1.5rem, font-weight: 300, font-style: italic),
-
+  logo: (
+      font-family: 'Inter',
+      font-size: 1.5rem,
+      font-weight: 700,
+    ),
+  h2: (
+    font-family: 'Inter',
+    font-size: 1.5rem,
+    font-weight: 500,
+  ),
+  info: (
+    font-family: 'Inter',
+    font-size: 1.5rem,
+    font-weight: 400,
+  ),
+  italic: (
+    font-family: 'Inter',
+    font-size: 1.5rem,
+    font-weight: 300,
+    font-style: italic,
+  ),
   // 20px
-  primary:(font-family: 'Inter', font-size: 1.25rem, font-weight: 400),
-
+  primary: (
+      font-family: 'Inter',
+      font-size: 1.25rem,
+      font-weight: 400,
+    ),
   // 18px
-  help:(font-family: 'Inter', font-size: 1.125rem, font-weight: 400),
-  nav:(font-family: 'Inter', font-size: 1.125rem, font-weight: 300),
-
+  help: (
+      font-family: 'Inter',
+      font-size: 1.125rem,
+      font-weight: 400,
+    ),
+  nav: (
+    font-family: 'Inter',
+    font-size: 1.125rem,
+    font-weight: 300,
+  ),
   // 16px
-  system:(font-family: 'Inter', font-size: 1rem, font-weight: 300),
-
+  system: (
+      font-family: 'Inter',
+      font-size: 1rem,
+      font-weight: 300,
+    ),
   // 14px
-  prices:(font-family: 'Inter', font-size: 0.875rem, font-weight: 400),
+  prices: (
+      font-family: 'Inter',
+      font-size: 0.875rem,
+      font-weight: 400,
+    )
 );
 
 @mixin text-style($name) {
-  $style: map.get($map: $text-style, $key: $name);
+  $style: map.get(
+    $map: $text-style,
+    $key: $name,
+  );
   font-size: map.get($map: $style, $key: font-size);
   font-weight: map.get($map: $style, $key: font-weight);
   font-family: map.get($map: $style, $key: font-family), sans-serif;

@@ -1,7 +1,6 @@
 <script setup lang="ts">
-
-import InputField from "@shared-ui/InputField";
-import AltButton from "@shared-ui/ui/AltButton";
+import InputField from '@shared-ui/InputField'
+import AltButton from '@shared-ui/ui/AltButton'
 </script>
 
 <template>
@@ -10,7 +9,7 @@ import AltButton from "@shared-ui/ui/AltButton";
       <div class="change-header">
         <h1 class="change-title">Смена пароля</h1>
         <router-link to="/">
-          <img src="/assets/icons/cross.svg" alt="Закрыть" class="change-cross"/>
+          <img src="/assets/icons/cross.svg" alt="Закрыть" class="change-cross" />
         </router-link>
       </div>
       <form class="change-form">
@@ -37,81 +36,81 @@ import AltButton from "@shared-ui/ui/AltButton";
 </template>
 
 <style scoped lang="scss">
-  .wrapper{
-    display: flex;
-    justify-content: center;
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.change {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 50px;
+  border-radius: 33px;
+  background: $text-secondary;
+  max-width: 800px;
+  width: 100%;
+
+  &-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: end;
+    align-items: center;
+    padding: 0 10px 27px;
   }
 
-  .change {
+  &-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: 2;
+    color: $text-on-dark-primary;
+    @include text-style(title);
+  }
+
+  &-cross {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: 3;
+    opacity: 1;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
+
+  &-form {
     display: flex;
     flex-direction: column;
-    padding: 40px 50px;
-    border-radius: 33px;
-    background: $text-secondary;
-    max-width: 800px;
-    width: 100%;
+    gap: 60px;
 
-    &-header {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      justify-items: end;
-      align-items: center;
-      padding: 0 10px 27px;
-    }
-
-    &-title {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      grid-column: 2;
-      color: $text-on-dark-primary;
-      @include text-style(title);
-    }
-
-    &-cross {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      grid-column: 3;
-      opacity: 1;
-      transition: opacity 0.3s;
-
-      &:hover {
-        opacity: 0.8;
-      }
-
-      &:active {
-        opacity: 0.6;
-      }
-    }
-
-    &-form {
+    &-inputs {
       display: flex;
       flex-direction: column;
-      gap: 60px;
+      gap: 16px;
 
-      &-inputs {
+      &-container {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 8px;
+        color: $text-on-dark-primary;
+        @include text-style(nav);
 
-        &-container {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-          color: $text-on-dark-primary;
-          @include text-style(nav);
-
-          &-text {
-            padding-left: 40px;
-          }
+        &-text {
+          padding-left: 40px;
         }
       }
+    }
 
-      &-button {
-        display: flex;
-        justify-content: center;
-      }
+    &-button {
+      display: flex;
+      justify-content: center;
     }
   }
+}
 </style>

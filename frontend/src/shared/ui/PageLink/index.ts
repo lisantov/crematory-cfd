@@ -1,2 +1,2 @@
-import PageLink from './ui/PageLink.vue';
-export default PageLink;
+import PageLink from './ui/PageLink.vue'
+export default PageLink

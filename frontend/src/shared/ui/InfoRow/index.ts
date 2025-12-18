@@ -1,2 +1,2 @@
-import InfoRow from "./ui/InfoRow.vue";
-export default InfoRow;
+import InfoRow from './ui/InfoRow.vue'
+export default InfoRow

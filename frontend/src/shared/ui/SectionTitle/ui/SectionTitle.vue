@@ -1,6 +1,4 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <h2 class="title">
@@ -8,11 +6,11 @@
   </h2>
 </template>
 <style lang="scss" scoped>
-  .title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @include text-style(headlines);
-    color: $text-primary;
-  }
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include text-style(headlines);
+  color: $text-primary;
+}
 </style>

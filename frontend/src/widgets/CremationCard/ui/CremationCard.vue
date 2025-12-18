@@ -1,47 +1,54 @@
 <script setup lang="ts">
-import type { CremationCard } from "./../model/types";
-import PrimaryButton from "@shared-ui/PrimaryButton";
-import {computed} from "vue";
+import type { CremationCard } from './../model/types'
+import PrimaryButton from '@shared-ui/PrimaryButton'
+import { computed } from 'vue'
 
-const props = defineProps<CremationCard>();
+const props = defineProps<CremationCard>()
 
 const parsedDocuments = computed(() => {
   if (props.documents) {
-    return JSON.parse(props.documents);
+    return JSON.parse(props.documents)
   }
-  return [];
-});
+  return []
+})
 </script>
 
 <template>
- <article class="card">
-   <div class="card-text">
-     <div class="card-about">
-       <div class="card-about-name">
-         <img src="/assets/icons/flowerLotus.svg" alt="Цветок">
-         <p>{{ name }} {{ surname }}  {{ patronymic }}</p>
-       </div>
-       <div class="card-date">
-         <p>Дата: {{ date }}</p>
-         <p>Время: {{ time }}</p>
-       </div>
-       <p>Номер заказа: {{ order_number }}</p>
-       <p>Статус: {{ status }}</p>
-       <p>Зал: {{ hall }}</p>
-       <p>Ответственный сотрудник: {{ employee }}</p>
-     </div>
-     <div class="card-docks">
-       <h2 class="card-docks-title">Документы</h2>
-       <p v-for="doc in parsedDocuments" :key="doc">{{ doc }}</p>
-       <primary-button type="button"><img src="/assets/icons/application.svg" alt="Заявка"> Запросить справку</primary-button>
-     </div>
-   </div>
-   <div class="card-buttons">
-     <primary-button primary type="button">Детали</primary-button>
-     <primary-button simple type="button"><img src="/assets/icons/edit.svg" alt="Изменить"> Изменить</primary-button>
-     <primary-button simple type="button"><img src="/assets/icons/delete-circle.svg" alt="Удалить"> Отменить</primary-button>
-   </div>
- </article>
+  <article class="card">
+    <div class="card-text">
+      <div class="card-about">
+        <div class="card-about-name">
+          <img src="/assets/icons/flowerLotus.svg" alt="Цветок" />
+          <p>{{ name }} {{ surname }} {{ patronymic }}</p>
+        </div>
+        <div class="card-date">
+          <p>Дата: {{ date }}</p>
+          <p>Время: {{ time }}</p>
+        </div>
+        <p>Номер заказа: {{ order_number }}</p>
+        <p>Статус: {{ status }}</p>
+        <p>Зал: {{ hall }}</p>
+        <p>Ответственный сотрудник: {{ employee }}</p>
+      </div>
+      <div class="card-docks">
+        <h2 class="card-docks-title">Документы</h2>
+        <p v-for="doc in parsedDocuments" :key="doc">{{ doc }}</p>
+        <primary-button type="button"
+          ><img src="/assets/icons/application.svg" alt="Заявка" /> Запросить
+          справку</primary-button
+        >
+      </div>
+    </div>
+    <div class="card-buttons">
+      <primary-button primary type="button">Детали</primary-button>
+      <primary-button simple type="button"
+        ><img src="/assets/icons/edit.svg" alt="Изменить" /> Изменить</primary-button
+      >
+      <primary-button simple type="button"
+        ><img src="/assets/icons/delete-circle.svg" alt="Удалить" /> Отменить</primary-button
+      >
+    </div>
+  </article>
 </template>
 
 <style scoped lang="scss">

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {defineProps} from 'vue'
+import { defineProps } from 'vue'
 
 interface IProps {
   placeholder: string
@@ -12,7 +12,13 @@ const input = defineModel()
 <template>
   <card-frame>
     <label class="label">
-      <input v-model="input" :placeholder="placeholder" type="text" class="input" :class="white && 'white'">
+      <input
+        v-model="input"
+        :placeholder="placeholder"
+        type="text"
+        class="input"
+        :class="white && 'white'"
+      />
     </label>
   </card-frame>
 </template>
@@ -55,7 +61,7 @@ const input = defineModel()
 }
 
 .white {
-  color:$text-secondary;
+  color: $text-secondary;
   background: $text-on-dark-primary;
   @include text-style(help);
   border: none;

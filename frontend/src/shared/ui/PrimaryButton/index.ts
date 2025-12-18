@@ -1,2 +1,2 @@
-import PrimaryButton from './ui/PrimaryButton.vue';
-export default PrimaryButton;
+import PrimaryButton from './ui/PrimaryButton.vue'
+export default PrimaryButton

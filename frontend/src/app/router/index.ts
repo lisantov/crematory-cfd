@@ -7,27 +7,27 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: MainPage
+      component: MainPage,
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import("../../pages/LoginPage")
+      component: () => import('../../pages/LoginPage'),
     },
     {
       path: '/registration',
       name: 'registration',
-      component: () => import("../../pages/RegisterPage")
+      component: () => import('../../pages/RegisterPage'),
     },
     {
       path: '/profile',
       name: 'profile',
-      component: () => import("../../pages/ProfilePage")
+      component: () => import('../../pages/ProfilePage'),
     },
     {
       path: '/changePassword',
       name: 'changePassword',
-      component: () => import("../../pages/ChangePasswordPage")
+      component: () => import('../../pages/ChangePasswordPage'),
     },
   ],
 })
