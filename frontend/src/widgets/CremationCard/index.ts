@@ -1,2 +1,2 @@
-import CremationCard from "./ui/CremationCard.vue";
-export default CremationCard;
+import CremationCard from './ui/CremationCard.vue'
+export default CremationCard

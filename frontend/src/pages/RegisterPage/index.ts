@@ -1,2 +1,2 @@
-import RegisterPage from './ui/RegisterPage.vue';
-export default RegisterPage;
+import RegisterPage from './ui/RegisterPage.vue'
+export default RegisterPage

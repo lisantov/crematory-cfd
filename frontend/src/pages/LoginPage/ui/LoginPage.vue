@@ -1,35 +1,39 @@
 <script setup lang="ts">
-import SectionTitle from "@shared-ui/SectionTitle";
-import InputField from "@shared-ui/InputField";
-import PasswordField from "@shared-ui/PasswordField";
-import PrimaryButton from "@shared-ui/PrimaryButton";
-import PageLink from "@shared-ui/PageLink";
-import {reactive, ref} from "vue";
-import type {ErrorResponse, LoginUserData} from "@/shared/api/types.ts";
-import {loginUser} from "@/shared/api";
-import router from "@/app/router";
+import SectionTitle from '@shared-ui/SectionTitle'
+import InputField from '@shared-ui/InputField'
+import PasswordField from '@shared-ui/PasswordField'
+import PrimaryButton from '@shared-ui/PrimaryButton'
+import PageLink from '@shared-ui/PageLink'
+import { reactive, ref } from 'vue'
+import type { ErrorResponse, LoginUserData } from '@/shared/api/types.ts'
+import { loginUser } from '@/shared/api'
+import router from '@/app/router'
 
 const loginUserData = reactive<LoginUserData>({
   login: '',
   password: '',
 })
 
-const errorInputs = ref<string[]>([]);
+const errorInputs = ref<string[]>([])
 
-async function loginUserDataTransfer () {
+async function loginUserDataTransfer() {
   try {
-    await loginUser(loginUserData);
-    await router.push('/profile');
-  }
-  catch (error) {
+    const resp = await loginUser(loginUserData)
+    const token = resp.token
 
-    errorInputs.value = [];
+    localStorage.setItem('token', token)
 
-    const err = error as { response?: { data?: ErrorResponse } };
-    const backendErrors = err.response?.data?.errors;
+    await router.push('/profile')
+  } catch (error) {
+    errorInputs.value = []
+
+    const err = error as { response?: { data?: ErrorResponse } }
+    const backendErrors = err.response?.data?.errors
 
     if (backendErrors) {
-      errorInputs.value = Object.keys(backendErrors).filter(field => backendErrors[field].length > 0);
+      errorInputs.value = Object.keys(backendErrors).filter(
+        (field) => backendErrors[field].length > 0,
+      )
     }
   }
 }
@@ -37,13 +41,24 @@ async function loginUserDataTransfer () {
 
 <template>
   <div class="registration">
-    <form class="registration-container" @sumbit.prevent = "loginUserDataTransfer">
+    <form class="registration-container" @sumbit.prevent="loginUserDataTransfer">
       <section-title>
         <p>Вход</p>
       </section-title>
       <div class="registration-inputs">
-        <input-field :error="errorInputs.includes('login')" type="text" required v-model="loginUserData.login" placeholder="Логин"/>
-        <password-field :error="errorInputs.includes('password')" v-model="loginUserData.password" required placeholder="Пароль"></password-field>
+        <input-field
+          :error="errorInputs.includes('login')"
+          type="text"
+          required
+          v-model="loginUserData.login"
+          placeholder="Логин"
+        />
+        <password-field
+          :error="errorInputs.includes('password')"
+          v-model="loginUserData.password"
+          required
+          placeholder="Пароль"
+        ></password-field>
         <div class="registration-links">
           <page-link href="/password-recovery/">
             <p>Забыли пароль?</p>
@@ -89,7 +104,7 @@ async function loginUserDataTransfer () {
   &-links {
     display: flex;
     justify-content: space-between;
-    padding:0 30px;
+    padding: 0 30px;
   }
 
   &-interactive {

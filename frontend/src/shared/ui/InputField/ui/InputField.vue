@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {defineProps} from 'vue'
+import { defineProps } from 'vue'
 
 interface IProps {
   placeholder: string
@@ -14,7 +14,14 @@ const input = defineModel()
 
 <template>
   <label class="label">
-    <input :required="required" v-model="input" :placeholder="placeholder" :type="type" class="input" :class="white && 'white', error && 'error'">
+    <input
+      :required="required"
+      v-model="input"
+      :placeholder="placeholder"
+      :type="type"
+      class="input"
+      :class="white && 'white' + ' ' + error && 'error'"
+    />
     <span v-if="error" class="input-error">{{ error }}</span>
   </label>
 </template>
@@ -63,7 +70,7 @@ const input = defineModel()
 }
 
 .white {
-  color:$text-secondary;
+  color: $text-secondary;
   background: $text-on-dark-primary;
   @include text-style(help);
   border: none;

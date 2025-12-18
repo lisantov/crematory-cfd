@@ -2,43 +2,38 @@
 import { ref } from 'vue'
 
 interface IProps {
-  placeholder: string;
+  placeholder: string
   required?: boolean
   error?: string
 }
 defineProps<IProps>()
 const model = defineModel<string>()
-const isHidden = ref<boolean>(true);
+const isHidden = ref<boolean>(true)
 
-const toggleHidden = () => isHidden.value = !isHidden.value;
+const toggleHidden = () => (isHidden.value = !isHidden.value)
 </script>
 
 <template>
   <div>
-    <div
-      class="password-container"
-      :class="error && 'error'"
-    >
+    <div class="password-container" :class="error && 'error'">
       <label>
         <input
-          :type="isHidden
-          ? 'password'
-          : 'text'"
+          :type="isHidden ? 'password' : 'text'"
           v-model="model"
           class="password-field"
           :placeholder="placeholder"
           :required="required"
-        >
+        />
       </label>
-      <button @click="toggleHidden" class="password-icon" :style="{padding: isHidden ? '3px 0 3px' : '0'}">
+      <button
+        @click="toggleHidden"
+        class="password-icon"
+        :style="{ padding: isHidden ? '3px 0 3px' : '0' }"
+      >
         <img
-          :src="isHidden
-          ? '/assets/icons/eye.svg'
-          : '/assets/icons/eye-closed.svg'"
-          :alt="isHidden
-          ? 'Иконка для просмотра пароля'
-          : 'Иконка для скрытия пароля'"
-        >
+          :src="isHidden ? '/assets/icons/eye.svg' : '/assets/icons/eye-closed.svg'"
+          :alt="isHidden ? 'Иконка для просмотра пароля' : 'Иконка для скрытия пароля'"
+        />
       </button>
     </div>
     <span v-if="error" class="password-container-error">{{ error }}</span>
@@ -46,71 +41,71 @@ const toggleHidden = () => isHidden.value = !isHidden.value;
 </template>
 
 <style scoped lang="scss">
-  .password-container {
-    width: 100%;
-    display: grid;
-    padding: 12px 30px;
-    border-radius: 32px;
-    grid-template-columns: 1fr auto;
-    gap: 16px;
-    border: 1px solid $card-frame-border;
-    box-shadow: 0 4px 10px 2px $card-frame-shadow;
+.password-container {
+  width: 100%;
+  display: grid;
+  padding: 12px 30px;
+  border-radius: 32px;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  border: 1px solid $card-frame-border;
+  box-shadow: 0 4px 10px 2px $card-frame-shadow;
 
-    &:has(:focus-visible) {
-      outline: 2px solid $card-frame-border;
-    }
-
-    &-error {
-      @include text-style(help);
-      font-size: 14px;
-      padding-top: 2px;
-      color: $delete-active;
-    }
+  &:has(:focus-visible) {
+    outline: 2px solid $card-frame-border;
   }
 
-  .password-field {
+  &-error {
     @include text-style(help);
-    width: 100%;
-    height: 100%;
-    border: none;
-    background-color: transparent;
-    color: $text-primary;
-    caret-color: $input-active-caret;
-    transition: color 0.25s ease-in-out;
+    font-size: 14px;
+    padding-top: 2px;
+    color: $delete-active;
+  }
+}
+
+.password-field {
+  @include text-style(help);
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  color: $text-primary;
+  caret-color: $input-active-caret;
+  transition: color 0.25s ease-in-out;
+
+  &::placeholder {
+    color: $input-placeholder;
+  }
+
+  &:hover::placeholder {
+    color: $input-hover-placeholder;
+  }
+
+  &:focus {
+    outline: none;
 
     &::placeholder {
-      color: $input-placeholder;
-    }
-
-    &:hover::placeholder {
-      color: $input-hover-placeholder;
-    }
-
-    &:focus {
-      outline: none;
-
-      &::placeholder {
-        color: transparent;
-      }
+      color: transparent;
     }
   }
+}
 
-  .password-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    aspect-ratio: 1;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+.password-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  aspect-ratio: 1;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 
-    & img {
-      width: 100%;
-    }
+  & img {
+    width: 100%;
   }
+}
 
-  .error {
-    outline: 2px solid $delete-active;
-  }
+.error {
+  outline: 2px solid $delete-active;
+}
 </style>

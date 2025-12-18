@@ -1,2 +1,2 @@
-import AccordeonInfo from "./ui/AccordeonInfo.vue";
-export default AccordeonInfo;
+import AccordeonInfo from './ui/AccordeonInfo.vue'
+export default AccordeonInfo

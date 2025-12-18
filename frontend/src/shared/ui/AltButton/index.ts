@@ -1,2 +1,2 @@
-import AltButton from "./ui/AltButton.vue";
-export default AltButton;
+import AltButton from './ui/AltButton.vue'
+export default AltButton
