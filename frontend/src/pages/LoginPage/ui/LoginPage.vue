@@ -4,17 +4,18 @@ import InputField from '@shared-ui/InputField'
 import PasswordField from '@shared-ui/PasswordField'
 import PrimaryButton from '@shared-ui/PrimaryButton'
 import PageLink from '@shared-ui/PageLink'
-import { reactive, ref } from 'vue'
-import type { ErrorResponse, LoginUserData } from '@/shared/api/types.ts'
+import { reactive } from 'vue'
+import type { LoginUserData } from '@/shared/api/types.ts'
 import { loginUser } from '@/shared/api'
 import router from '@/app/router'
+import { useUserStore } from '@/entities/user/store/userStore.ts'
 
 const loginUserData = reactive<LoginUserData>({
   login: '',
   password: '',
 })
 
-const errorInputs = ref<string[]>([])
+const userStore = useUserStore()
 
 async function loginUserDataTransfer() {
   try {
@@ -22,19 +23,11 @@ async function loginUserDataTransfer() {
     const token = resp.token
 
     localStorage.setItem('token', token)
+    userStore.setToken(token)
 
     await router.push('/profile')
   } catch (error) {
-    errorInputs.value = []
-
-    const err = error as { response?: { data?: ErrorResponse } }
-    const backendErrors = err.response?.data?.errors
-
-    if (backendErrors) {
-      errorInputs.value = Object.keys(backendErrors).filter(
-        (field) => backendErrors[field].length > 0,
-      )
-    }
+    console.error(error)
   }
 }
 </script>
@@ -46,15 +39,8 @@ async function loginUserDataTransfer() {
         <p>Вход</p>
       </section-title>
       <div class="registration-inputs">
-        <input-field
-          :error="errorInputs.includes('login')"
-          type="text"
-          required
-          v-model="loginUserData.login"
-          placeholder="Логин"
-        />
+        <input-field type="text" required v-model="loginUserData.login" placeholder="Логин" />
         <password-field
-          :error="errorInputs.includes('password')"
           v-model="loginUserData.password"
           required
           placeholder="Пароль"

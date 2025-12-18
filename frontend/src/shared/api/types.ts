@@ -1,3 +1,5 @@
+import type { User } from '@/entities/user/model/types.ts'
+
 export interface LoginUserData {
   login: string
   password: string
@@ -34,7 +36,7 @@ export interface TokenResponse {
 }
 
 export interface ProfileResponse {
-  profile: string
+  profile: User
 }
 
 export interface ErrorResponse extends MessageResponse {

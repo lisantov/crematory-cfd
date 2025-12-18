@@ -61,7 +61,12 @@ const userDataTransfer = () => {
         router.push('/login')
       })
       .catch((data: ErrorResponse) => {
-        userErrors = Object.assign(userErrors, data.errors)
+        Object.keys(data.errors).forEach((key) => {
+          userErrors = Object.assign({
+            ...userErrors,
+            [key]: data.errors[key][0],
+          })
+        })
       })
   }
 }
@@ -135,7 +140,6 @@ const validRepeatPassword = (event: InputEvent) =>
           @input="validEmail"
           :error="userErrors.email"
           type="email"
-          required
           v-model="userData.email"
           placeholder="Email (необязательно)"
         />

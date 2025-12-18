@@ -1,6 +1,16 @@
 <script setup lang="ts">
 import PageLink from '@shared-ui/PageLink'
 import PrimaryButton from '@shared-ui/PrimaryButton'
+import { useUserStore } from '@/entities/user/store/userStore.ts'
+import router from '@/app/router'
+
+const userStore = useUserStore()
+
+const handleLogout = () => {
+  userStore.resetUser()
+  userStore.resetToken()
+  router.push('/login')
+}
 </script>
 
 <template>
@@ -13,7 +23,12 @@ import PrimaryButton from '@shared-ui/PrimaryButton'
       <page-link href="/#service">услуги</page-link>
       <page-link href="/#faq">вопросы</page-link>
     </nav>
-    <primary-button href="/login" primary type="button">войти</primary-button>
+    <primary-button v-if="!userStore.token" href="/login" primary type="button"
+      >войти</primary-button
+    >
+    <primary-button v-else-if="userStore.token" @click="handleLogout" primary type="button"
+      >выйти</primary-button
+    >
   </header>
 </template>
 

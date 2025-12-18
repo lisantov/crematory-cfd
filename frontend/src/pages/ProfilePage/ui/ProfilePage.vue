@@ -4,6 +4,39 @@ import InfoRow from '@shared-ui/InfoRow'
 import PrimaryButton from '@shared-ui/PrimaryButton'
 import DeleteButton from '@shared-ui/DeleteButton'
 import CremationCard from '@/widgets/CremationCard'
+import { useUserStore } from '@/entities/user/store/userStore.ts'
+import router from '@/app/router'
+import { onMounted, ref } from 'vue'
+import { profileUser } from '@/shared/api/api.ts'
+
+interface UserData {
+  first_name: string
+  password: string
+  phone: string
+  login: string
+  email: string
+}
+
+const userStore = useUserStore()
+const userData = ref<UserData>({
+  first_name: 'Загрузка...',
+  password: 'Загрузка...',
+  phone: 'Загрузка...',
+  login: 'Загрузка...',
+  email: 'Загрузка...',
+})
+
+if (!userStore.token) router.push('/login')
+onMounted(async () => {
+  try {
+    const data = await profileUser()
+    userStore.setUser(data.profile)
+    userData.value = data.profile
+  } catch (error) {
+    console.error(error)
+    await router.push('/login')
+  }
+})
 </script>
 
 <template>
@@ -12,11 +45,11 @@ import CremationCard from '@/widgets/CremationCard'
       <section-title>Личные данные</section-title>
     </h1>
     <div class="personal-data">
-      <info-row title="Имя">Елизавета</info-row>
-      <info-row title="Пароль">**************</info-row>
-      <info-row title="Номер">+7 999 999 99 99</info-row>
-      <info-row title="Логин">Elizaveta</info-row>
-      <info-row title="E-mail">pochta45@mail.ru</info-row>
+      <info-row title="Имя">{{ userData.first_name }}</info-row>
+      <info-row title="Пароль">********</info-row>
+      <info-row title="Номер">{{ userData.phone }}</info-row>
+      <info-row title="Логин">{{ userData.login }}</info-row>
+      <info-row title="E-mail">{{ userData.email }}</info-row>
     </div>
     <div class="personal-buttons">
       <delete-button type="button">Удалить аккаунт</delete-button>

@@ -1,6 +1,15 @@
 <script setup lang="ts">
 import AppHeader from '@/widgets/AppHeader'
 import FooterNavigation from '@/widgets/FooterNavigation'
+import { useUserStore } from '@/entities/user/store/userStore.ts'
+import { onMounted } from 'vue'
+
+const userStore = useUserStore()
+
+onMounted(() => {
+  const token = localStorage.getItem('token')
+  if (token) userStore.setToken(token)
+})
 </script>
 
 <template>
