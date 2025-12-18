@@ -41,7 +41,7 @@ async function loginUserDataTransfer() {
 
 <template>
   <div class="registration">
-    <form class="registration-container" @sumbit.prevent="loginUserDataTransfer">
+    <form class="registration-container" @submit.prevent="loginUserDataTransfer">
       <section-title>
         <p>Вход</p>
       </section-title>
